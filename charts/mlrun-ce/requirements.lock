@@ -1,7 +1,7 @@
 dependencies:
 - name: nuclio
   repository: https://nuclio.github.io/nuclio/charts
-  version: 0.16.5
+  version: 0.16.8
 - name: mlrun
   repository: https://v3io.github.io/helm-charts/stable
   version: 0.9.1
@@ -17,5 +17,5 @@ dependencies:
 - name: kube-prometheus-stack
   repository: https://prometheus-community.github.io/helm-charts
   version: 41.7.2
-digest: sha256:1182007a3d44a9a73c381da682348fb4215b2fabd5fdb07598f3d497eb808857
-generated: "2022-12-14T14:08:43.260622+02:00"
+digest: sha256:4578d8994303127570c6218b17355545a9fc9e7d401a6b60d13e1e31e3eea32c
+generated: "2023-01-08T12:16:00.731185+02:00"
