@@ -144,9 +144,6 @@ mlrun:
   ce:
     mode: full
 
-  model_endpoint_monitoring:
-    store_type: sql
-
 jupyterNotebook:
   awsInstall: false
   fullnameOverride: mlrun-jupyter
