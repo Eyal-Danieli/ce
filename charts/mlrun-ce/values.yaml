@@ -362,8 +362,6 @@ kube-prometheus-stack:
       auth.anonymous:
         enabled: true
         org_role: Editor
-      security:
-        disable_initial_admin_creation: false
     fullnameOverride: grafana
     enabled: true
     service:
