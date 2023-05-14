@@ -144,6 +144,9 @@ mlrun:
   ce:
     mode: full
 
+  model_endpoint_monitoring:
+    store_type: sql
+
 jupyterNotebook:
   awsInstall: false
   fullnameOverride: mlrun-jupyter
@@ -340,18 +343,29 @@ kube-prometheus-stack:
       editable: true
       orgId: 1
       type: grafana-simple-json-datasource
-      url: http://mlrun-api:8080/api/grafana-proxy/model-endpoints
+      url: {}
       version: 1
+    - name: iguazio
+      type: mysql
+      url: my-release-mysql.default.svc.cluster.local:3306
+      user: root
+      password: xcg4BuPfVh
+      database: mlrun
+      maxOpenConns: 100
+      maxIdleConns: 100
+      maxIdleConnsAuto: true
     plugins:
       - grafana-simple-json-datasource
     persistence:
       type: pvc
       enabled: true
-      size: 10Gi  
+      size: 10Gi
     grafana.ini:
       auth.anonymous:
         enabled: true
         org_role: Editor
+      security:
+        disable_initial_admin_creation: false
     fullnameOverride: grafana
     enabled: true
     service:
@@ -361,7 +375,7 @@ kube-prometheus-stack:
     enabled: true
     service:
       type: NodePort
-      nodePort: 30120    
+      nodePort: 30120
   kube-state-metrics:
     fullnameOverride: state-metrics
   prometheus-node-exporter:
