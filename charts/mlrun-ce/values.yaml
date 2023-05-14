@@ -351,6 +351,7 @@ kube-prometheus-stack:
       user:
       password:
       database:
+      editable: true
       maxOpenConns: 100
       maxIdleConns: 100
       maxIdleConnsAuto: true
