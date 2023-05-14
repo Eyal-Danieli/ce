@@ -30,15 +30,6 @@ data:
       "id": 113,
       "links": [
         {
-          "icon": "external link",
-          "includeVars": true,
-          "keepTime": true,
-          "tags": [],
-          "title": "Model Monitoring - Performance",
-          "type": "link",
-          "url": "/d/9CazA-UGz/model-monitoring-performance"
-        },
-        {
           "asDropdown": true,
           "icon": "external link",
           "includeVars": true,
@@ -996,13 +987,13 @@ data:
         ]
       },
       "time": {
-        "from": "now-12h",
+        "from": "now-1h",
         "to": "now"
       },
       "timepicker": {},
       "timezone": "",
-      "title": "Model Monitoring - Details v2",
-      "uid": "AohIXhAMknew",
+      "title": "Model Monitoring - Details",
+      "uid": "AohIXhAMk",
       "version": 6,
       "weekStart": ""
     }

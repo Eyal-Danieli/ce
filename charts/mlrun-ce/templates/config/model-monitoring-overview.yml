@@ -763,8 +763,8 @@ data:
         ]
       },
       "time": {
-        "from": "2023-03-22T19:20:46.904Z",
-        "to": "2023-04-23T19:20:46.904Z"
+        "from": "now-1h",
+        "to": "now"
       },
       "timepicker": {},
       "timezone": "",
