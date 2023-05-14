@@ -343,8 +343,17 @@ kube-prometheus-stack:
       editable: true
       orgId: 1
       type: grafana-simple-json-datasource
-      url: {}
+      url: http://mlrun-api:8080/api/grafana-proxy/model-endpoints
       version: 1
+    - name: iguazio
+      type: mysql
+      url:
+      user:
+      password:
+      database:
+      maxOpenConns: 100
+      maxIdleConns: 100
+      maxIdleConnsAuto: true
     plugins:
       - grafana-simple-json-datasource
     persistence:
