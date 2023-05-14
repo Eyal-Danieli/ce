@@ -345,15 +345,6 @@ kube-prometheus-stack:
       type: grafana-simple-json-datasource
       url: {}
       version: 1
-    - name: iguazio
-      type: mysql
-      url: my-release-mysql.default.svc.cluster.local:3306
-      user: root
-      password: xcg4BuPfVh
-      database: mlrun
-      maxOpenConns: 100
-      maxIdleConns: 100
-      maxIdleConnsAuto: true
     plugins:
       - grafana-simple-json-datasource
     persistence:
