@@ -233,14 +233,14 @@ data:
               "id": "organize",
               "options": {
                 "indexByName": {
-                  "first_request": 1,
-                  "last_request": 2,
-                  "function_uri": 3,
-                  "metrics->\"$.generic.latency_avg_1h\"": 4,
-                  "metrics->\"$.generic.predictions_per_second\"": 5,
-                  "model": 6,
-                  "model_class": 7,
-                  "uid": 8
+                  "first_request": 5,
+                  "last_request": 6,
+                  "function_uri": 2,
+                  "metrics->\"$.generic.latency_avg_1h\"": 7,
+                  "metrics->\"$.generic.predictions_per_second\"": 8,
+                  "model": 3,
+                  "model_class": 4,
+                  "uid": 1
                 },
                 "renameByName": {
                   "first_request": "First Request",
