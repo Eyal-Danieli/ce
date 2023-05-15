@@ -269,10 +269,7 @@ data:
                   "model_class": "Model Class",
                   "predictions_per_second": "Predictions/s (5 minute avg)",
                   "predictions_per_second_count_1s": "Predictions/sec",
-                  "tag": "Tag",
-                  "metrics->\"$.generic.latency_avg_1h\"": "Average Latency (1 hour)",
-                  "metrics->\"$.generic.predictions_per_second\"": "Predictions/s (5 minute avg)",
-                  "uid": "Endpoint ID",
+                  "tag": "Tag"
                 }
               }
             }
