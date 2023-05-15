@@ -265,11 +265,14 @@ data:
                   "latency_avg_1h": "Average Latency (1 hour)",
                   "latency_avg_1s": "Average Latency",
                   "latency_avg_5m": "Average Latency (1 hour)",
+                  "metrics->\"$.generic.latency_avg_1h\"": "Average Latency (1 hour)",
+                  "metrics->\"$.generic.predictions_per_second\"": "Predictions/s (5 minute avg)",
                   "model": "Model",
                   "model_class": "Model Class",
                   "predictions_per_second": "Predictions/s (5 minute avg)",
                   "predictions_per_second_count_1s": "Predictions/sec",
-                  "tag": "Tag"
+                  "tag": "Tag",
+                  "uid": "Endpoint ID"
                 }
               }
             }
