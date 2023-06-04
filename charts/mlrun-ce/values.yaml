@@ -362,6 +362,10 @@ kube-prometheus-stack:
     service:
       type: NodePort
       nodePort: 30120
+    prometheusSpec:
+      additionalScrapeConfigs:
+        - job_name: eyal-prom-config
+          metrics_path: /model-monitoring-metrics
   kube-state-metrics:
     fullnameOverride: state-metrics
   prometheus-node-exporter:
