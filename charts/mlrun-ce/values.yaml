@@ -366,6 +366,15 @@ kube-prometheus-stack:
       additionalScrapeConfigs:
         - job_name: eyal-prom-config
           metrics_path: /model-monitoring-metrics
+          kubernetes_sd_configs:
+            - role: endpoints
+              kubeconfig_file: ""
+              follow_redirects: true
+              enable_http2: true
+              namespaces:
+                own_namespace: false
+                names:
+                  - mlrun
   kube-state-metrics:
     fullnameOverride: state-metrics
   prometheus-node-exporter:
