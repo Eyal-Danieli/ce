@@ -367,6 +367,8 @@ kube-prometheus-stack:
         - job_name: eyal-prom-config
           metrics_path: /model-monitoring-metrics
           scheme: https
+          tls_config:
+            insecure_skip_verify: true
           relabel_configs:
             - source_labels: [ __meta_kubernetes_namespace ]
               separator: ;
