@@ -366,6 +366,7 @@ kube-prometheus-stack:
       additionalScrapeConfigs:
         - job_name: eyal-prom-config
           metrics_path: /model-monitoring-metrics
+          scheme: https
           relabel_configs:
             - source_labels: [ __meta_kubernetes_namespace ]
               separator: ;
