@@ -366,7 +366,7 @@ kube-prometheus-stack:
       additionalScrapeConfigs:
         - job_name: eyal-prom-config
           metrics_path: /model-monitoring-metrics
-          scheme: https
+          scheme: http
           tls_config:
             insecure_skip_verify: true
           scrape_interval: 5m
