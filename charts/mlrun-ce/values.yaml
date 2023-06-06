@@ -389,7 +389,7 @@ kube-prometheus-stack:
                   - mlrun
               selectors:
                 - role: "pod"
-                  label: "app=bar"
+                  label: "type=model-monitoring"
   kube-state-metrics:
     fullnameOverride: state-metrics
   prometheus-node-exporter:
