@@ -379,7 +379,7 @@ kube-prometheus-stack:
               replacement: $1
               action: replace
           kubernetes_sd_configs:
-            - role: endpoints
+            - role: pod
               kubeconfig_file: ""
               follow_redirects: true
               enable_http2: true
@@ -387,6 +387,9 @@ kube-prometheus-stack:
                 own_namespace: false
                 names:
                   - mlrun
+              selectors:
+                - role: "pod"
+                  label: "app=bar"
   kube-state-metrics:
     fullnameOverride: state-metrics
   prometheus-node-exporter:
