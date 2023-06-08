@@ -391,7 +391,7 @@ kube-prometheus-stack:
                 - role: "pod"
                   label: "type=model-monitoring"
         - job_name: monitoring-batch-pushgateway
-          metrics_path: /model-monitoring-metrics
+          metrics_path: /model-monitoring-pushgateway
           honor_labels: true
           scheme: http
           tls_config:
