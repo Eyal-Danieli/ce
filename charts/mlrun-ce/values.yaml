@@ -409,3 +409,7 @@ kube-prometheus-stack:
     fullnameOverride: state-metrics
   prometheus-node-exporter:
     fullnameOverride: node-exporter
+
+prometheus-pushgateway:
+  enabled: true
+  fullnameOverride: "prometheus-pushgateway"
