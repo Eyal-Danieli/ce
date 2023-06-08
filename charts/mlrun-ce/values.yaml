@@ -369,8 +369,8 @@ kube-prometheus-stack:
           scheme: http
           tls_config:
             insecure_skip_verify: true
-          scrape_interval: 30s
-          scrape_timeout: 25s
+          scrape_interval: 10s
+          scrape_timeout: 5s
           relabel_configs:
             - source_labels: [ __meta_kubernetes_namespace ]
               separator: ;
@@ -390,6 +390,21 @@ kube-prometheus-stack:
               selectors:
                 - role: "pod"
                   label: "type=model-monitoring"
+        - job_name: monitoring-batch-pushgateway
+          metrics_path: /model-monitoring-metrics
+          honor_labels: true
+          scheme: http
+          tls_config:
+            insecure_skip_verify: true
+          scrape_interval: 10s
+          scrape_timeout: 5s
+          relabel_configs:
+            - source_labels: [ __meta_kubernetes_namespace ]
+              separator: ;
+              regex: (.*)
+              target_label: namespace
+              replacement: $1
+              action: replace
   kube-state-metrics:
     fullnameOverride: state-metrics
   prometheus-node-exporter:
