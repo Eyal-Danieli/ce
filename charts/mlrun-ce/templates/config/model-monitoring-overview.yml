@@ -902,7 +902,7 @@ data:
                 "exemplar": false,
                 "expr": "avg_over_time(model_latency_seconds_sum{project=\"$PROJECT\", endpoint_type!=\"2\"}[1h]) / avg_over_time(predictions_total{project=\"$PROJECT\"}[1h])",
                 "instant": false,
-                "legendFormat": "{{ '{{ model }}'}}",
+                "legendFormat": "__auto",
                 "range": true,
                 "refId": "A"
               }
