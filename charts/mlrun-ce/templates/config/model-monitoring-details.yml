@@ -27,17 +27,28 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 113,
       "links": [
         {
           "asDropdown": true,
-          "icon": "external link",
+          "icon": "dashboard",
           "includeVars": true,
           "keepTime": true,
           "tags": [],
           "title": "Model Monitoring - Overview",
           "type": "link",
           "url": "d/g0M4uh0Mz/model-monitoring-overview"
+        },
+        {
+          "asDropdown": false,
+          "icon": "dashboard",
+          "includeVars": true,
+          "keepTime": true,
+          "tags": [],
+          "targetBlank": false,
+          "title": "Model Monitoring - Performance",
+          "tooltip": "",
+          "type": "link",
+          "url": "d/AohIXhAMk/model-monitoring-performance"
         }
       ],
       "liveNow": false,
@@ -200,7 +211,7 @@ data:
             "showHeader": true,
             "sortBy": []
           },
-          "pluginVersion": "9.3.6",
+          "pluginVersion": "9.2.2",
           "targets": [
             {
               "datasource": "iguazio",
@@ -234,8 +245,8 @@ data:
               "options": {
                 "indexByName": {
                   "first_request": 5,
-                  "last_request": 6,
                   "function_uri": 2,
+                  "last_request": 6,
                   "metrics->\"$.generic.latency_avg_1h\"": 7,
                   "metrics->\"$.generic.predictions_per_second\"": 8,
                   "model": 3,
@@ -244,8 +255,8 @@ data:
                 },
                 "renameByName": {
                   "first_request": "First Request",
-                  "last_request": "Last Request",
                   "function_uri": "Function URI",
+                  "last_request": "Last Request",
                   "metrics->\"$.generic.latency_avg_1h\"": "Average Latency (1 hour)",
                   "metrics->\"$.generic.predictions_per_second\"": "Predictions/s (5 minute avg)",
                   "model": "Model",
@@ -407,7 +418,7 @@ data:
               }
             ]
           },
-          "pluginVersion": "9.3.6",
+          "pluginVersion": "9.2.2",
           "targets": [
             {
               "datasource": "iguazio",
@@ -583,7 +594,7 @@ data:
               }
             ]
           },
-          "pluginVersion": "9.3.6",
+          "pluginVersion": "9.2.2",
           "targets": [
             {
               "dataset": "mlrun",
@@ -908,6 +919,172 @@ data:
           ],
           "transparent": true,
           "type": "table"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "description": "Drift metrics that were calculated by the model monitoring offline batch job. The results are based on the average metric value of each feature.  For more details about the calculated metrics please click on the following links:\n",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "points",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "hellinger_mean"
+                },
+                "properties": [
+                  {
+                    "id": "custom.showPoints",
+                    "value": "never"
+                  },
+                  {
+                    "id": "displayName",
+                    "value": "Hellinger (mean)"
+                  },
+                  {
+                    "id": "custom.showPoints",
+                    "value": "never"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "kld_mean"
+                },
+                "properties": [
+                  {
+                    "id": "custom.showPoints",
+                    "value": "never"
+                  },
+                  {
+                    "id": "displayName",
+                    "value": "KLD (mean)"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "tvd_mean"
+                },
+                "properties": [
+                  {
+                    "id": "custom.showPoints",
+                    "value": "never"
+                  },
+                  {
+                    "id": "displayName",
+                    "value": "TVD (mean)"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 24,
+            "x": 0,
+            "y": 13
+          },
+          "id": 26,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Total Variance Distance (TVD)",
+              "url": "https://en.wikipedia.org/wiki/Total_variation_distance_of_probability_measures"
+            },
+            {
+              "targetBlank": true,
+              "title": "Kullback–Leibler Divergence (KLD)",
+              "url": "https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence"
+            },
+            {
+              "targetBlank": true,
+              "title": "Hellinger",
+              "url": "https://en.wikipedia.org/wiki/Hellinger_distance"
+            }
+          ],
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "editorMode": "code",
+              "expr": "income_features{project=\"$PROJECT\", endpoint_id=\"$MODELENDPOINT\"}",
+              "legendFormat": "{{metric}}",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Income Features",
+          "type": "timeseries"
         }
       ],
       "refresh": false,
@@ -917,11 +1094,7 @@ data:
       "templating": {
         "list": [
           {
-            "current": {
-              "selected": false,
-              "text": "default",
-              "value": "default"
-            },
+            "current": {},
             "datasource": "iguazio",
             "definition": "SELECT DISTINCT project FROM mlrun.model_endpoints",
             "hide": 0,
@@ -941,12 +1114,7 @@ data:
             "useTags": false
           },
           {
-            "current": {
-              "isNone": true,
-              "selected": false,
-              "text": "None",
-              "value": ""
-            },
+            "current": {},
             "datasource": "iguazio",
             "definition": "SELECT uid FROM mlrun.model_endpoints where project='$PROJECT';",
             "hide": 0,
@@ -975,7 +1143,7 @@ data:
       "timezone": "",
       "title": "Model Monitoring - Details",
       "uid": "AohIXhAMk",
-      "version": 6,
+      "version": 1,
       "weekStart": ""
     }
 kind: ConfigMap
