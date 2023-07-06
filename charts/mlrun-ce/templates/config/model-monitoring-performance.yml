@@ -212,7 +212,7 @@ data:
               },
               "editorMode": "code",
               "expr": "drift_metrics{project=\"$PROJECT\", endpoint_id=\"$MODELENDPOINT\"}",
-              "legendFormat": "__auto",
+              "legendFormat": "{{ '{{' }} metric }}",
               "range": true,
               "refId": "A"
             }
