@@ -212,7 +212,7 @@ data:
               },
               "editorMode": "code",
               "expr": "drift_metrics{project=\"$PROJECT\", endpoint_id=\"$MODELENDPOINT\"}",
-              "legendFormat": "{{metric}}",
+              "legendFormat": "__auto",
               "range": true,
               "refId": "A"
             }
@@ -678,7 +678,7 @@ data:
               },
               "editorMode": "code",
               "expr": "income_features{project=\"$PROJECT\", endpoint_id=\"$MODELENDPOINT\"}",
-              "legendFormat": "{{metric}}",
+              "legendFormat": "__auto",
               "range": true,
               "refId": "A"
             }
