@@ -1078,7 +1078,7 @@ data:
               },
               "editorMode": "code",
               "expr": "income_features{project=\"$PROJECT\", endpoint_id=\"$MODELENDPOINT\"}",
-              "legendFormat": "{{metric}}",
+              "legendFormat": "__auto",
               "range": true,
               "refId": "A"
             }
