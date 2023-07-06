@@ -804,7 +804,7 @@ data:
                 },
                 "editorMode": "builder",
                 "expr": "rate(predictions_total{project=\"$PROJECT\", endpoint_type!=\"2\"}[5m])",
-                "legendFormat": "{{model}}",
+                "legendFormat": "__auto",
                 "range": true,
                 "refId": "A"
               }
@@ -902,7 +902,7 @@ data:
                 "exemplar": false,
                 "expr": "avg_over_time(model_latency_seconds_sum{project=\"$PROJECT\", endpoint_type!=\"2\"}[1h]) / avg_over_time(predictions_total{project=\"$PROJECT\"}[1h])",
                 "instant": false,
-                "legendFormat": "Model = {{model}}",
+                "legendFormat": "__auto",
                 "range": true,
                 "refId": "A"
               }
@@ -995,7 +995,7 @@ data:
                 },
                 "editorMode": "builder",
                 "expr": "errors_total{project=\"$PROJECT\"}",
-                "legendFormat": "{{model}}",
+                "legendFormat": "__auto",
                 "range": true,
                 "refId": "A"
               }
