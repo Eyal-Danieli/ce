@@ -49,7 +49,7 @@ data:
             "title": "Model Monitoring - Performance",
             "tooltip": "",
             "type": "link",
-            "url": "d/AohIXhAMk/model-monitoring-performance"
+            "url": "d/9CazA-UGz/model-monitoring-performance"
           }
         ],
         "liveNow": false,
@@ -902,7 +902,7 @@ data:
                 "exemplar": false,
                 "expr": "avg_over_time(model_latency_seconds_sum{project=\"$PROJECT\", endpoint_type!=\"2\"}[1h]) / avg_over_time(predictions_total{project=\"$PROJECT\"}[1h])",
                 "instant": false,
-                "legendFormat": "__auto",
+                "legendFormat": "Model: {{model}}",
                 "range": true,
                 "refId": "A"
               }
