@@ -27,6 +27,7 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
+      "id": 75,
       "links": [
         {
           "asDropdown": true,
@@ -55,7 +56,7 @@ data:
       "panels": [
         {
           "datasource": "iguazio",
-          "description": "",
+          "description": "A summery table of the selected model endpoint:\n\n- Endpoint ID — the ID of the deployed model. \n\n- Function — Function to access the model, usually a Nuclio serving function\n\n- Model — user defined name for the model\n\n- Class — the implementation class that is used by the endpoint\n\n- First Request — first request for production data\n\n- Last Request — most recent request for production data\n\n- Average Latency (1 hour) - Average time that it takes to process an event\n\n- Predictions/s (5 minute avg) - Average amount of predictions per second in the last 5 minutes. ",
           "fieldConfig": {
             "defaults": {
               "custom": {
@@ -239,6 +240,7 @@ data:
               }
             }
           ],
+          "title": "Model Summary",
           "transformations": [
             {
               "id": "organize",
@@ -271,7 +273,7 @@ data:
         },
         {
           "datasource": "iguazio",
-          "description": "",
+          "description": "Drift statistics of the selected model according to the latest batch",
           "fieldConfig": {
             "defaults": {
               "custom": {
@@ -472,7 +474,7 @@ data:
         },
         {
           "datasource": "iguazio",
-          "description": "Feature analysis of the latest batch",
+          "description": "Feature analysis for each feature in the selected model according to the latest batch.",
           "fieldConfig": {
             "defaults": {
               "custom": {
@@ -925,7 +927,7 @@ data:
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "description": "Drift metrics that were calculated by the model monitoring offline batch job. The results are based on the average metric value of each feature.  For more details about the calculated metrics please click on the following links:\n",
+          "description": "Sampled data points from actual feature production data by time. ",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -934,7 +936,6 @@ data:
               "custom": {
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
-                "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
                 "drawStyle": "points",
@@ -971,96 +972,25 @@ data:
                   {
                     "color": "green",
                     "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
                   }
                 ]
               }
             },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "hellinger_mean"
-                },
-                "properties": [
-                  {
-                    "id": "custom.showPoints",
-                    "value": "never"
-                  },
-                  {
-                    "id": "displayName",
-                    "value": "Hellinger (mean)"
-                  },
-                  {
-                    "id": "custom.showPoints",
-                    "value": "never"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "kld_mean"
-                },
-                "properties": [
-                  {
-                    "id": "custom.showPoints",
-                    "value": "never"
-                  },
-                  {
-                    "id": "displayName",
-                    "value": "KLD (mean)"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "tvd_mean"
-                },
-                "properties": [
-                  {
-                    "id": "custom.showPoints",
-                    "value": "never"
-                  },
-                  {
-                    "id": "displayName",
-                    "value": "TVD (mean)"
-                  }
-                ]
-              }
-            ]
+            "overrides": []
           },
           "gridPos": {
-            "h": 7,
+            "h": 9,
             "w": 24,
             "x": 0,
             "y": 13
           },
           "id": 26,
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "Total Variance Distance (TVD)",
-              "url": "https://en.wikipedia.org/wiki/Total_variation_distance_of_probability_measures"
-            },
-            {
-              "targetBlank": true,
-              "title": "Kullback–Leibler Divergence (KLD)",
-              "url": "https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence"
-            },
-            {
-              "targetBlank": true,
-              "title": "Hellinger",
-              "url": "https://en.wikipedia.org/wiki/Hellinger_distance"
-            }
-          ],
+          "links": [],
           "options": {
             "legend": {
-              "calcs": [],
+              "calcs": [
+                "lastNotNull"
+              ],
               "displayMode": "table",
               "placement": "right",
               "showLegend": true
@@ -1078,7 +1008,7 @@ data:
               },
               "editorMode": "code",
               "expr": "income_features{project=\"$PROJECT\", endpoint_id=\"$MODELENDPOINT\"}",
-              "legendFormat": "__auto",
+              "legendFormat": "{{metric}}",
               "range": true,
               "refId": "A"
             }

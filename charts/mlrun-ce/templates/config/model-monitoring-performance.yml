@@ -27,9 +27,9 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 32,
+      "id": 31,
       "links": [
-            {
+        {
           "asDropdown": true,
           "icon": "dashboard",
           "includeVars": true,
@@ -212,7 +212,7 @@ data:
               },
               "editorMode": "code",
               "expr": "drift_metrics{project=\"$PROJECT\", endpoint_id=\"$MODELENDPOINT\"}",
-              "legendFormat": "__auto",
+              "legendFormat": "{{metric}}",
               "range": true,
               "refId": "A"
             }
@@ -225,7 +225,7 @@ data:
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "description": "",
+          "description": "Average latency time of processing an event in the selected model endpoint (1-hour rolling average) by time",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -321,6 +321,7 @@ data:
             "type": "prometheus",
             "uid": "prometheus"
           },
+          "description": "Average amount of predictions per second in the selected model endpoint (5-minute rolling average) by time. ",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -415,6 +416,7 @@ data:
             "type": "prometheus",
             "uid": "prometheus"
           },
+          "description": "Amount of predictions by time. The prediction counter is based on Prometheus Increase function across the range vector. The result is extrapolated through the time range (5m/1h) which can lead to a non-integer result. For more info about Prometheus Increase method:",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -450,7 +452,7 @@ data:
                   "mode": "off"
                 }
               },
-              "decimals": 0,
+              "decimals": 2,
               "mappings": [],
               "noValue": "0",
               "thresholds": {
@@ -478,6 +480,12 @@ data:
           },
           "hideTimeOverride": false,
           "id": 30,
+          "links": [
+            {
+              "title": "Promethues Increase",
+              "url": "https://prometheus.io/docs/prometheus/latest/querying/functions/#increase"
+            }
+          ],
           "options": {
             "legend": {
               "calcs": [
@@ -518,172 +526,6 @@ data:
             }
           ],
           "title": "Predictions Count",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "description": "Drift metrics that were calculated by the model monitoring offline batch job. The results are based on the average metric value of each feature.  For more details about the calculated metrics please click on the following links:\n",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "points",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineStyle": {
-                  "fill": "solid"
-                },
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "hellinger_mean"
-                },
-                "properties": [
-                  {
-                    "id": "custom.showPoints",
-                    "value": "never"
-                  },
-                  {
-                    "id": "displayName",
-                    "value": "Hellinger (mean)"
-                  },
-                  {
-                    "id": "custom.showPoints",
-                    "value": "never"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "kld_mean"
-                },
-                "properties": [
-                  {
-                    "id": "custom.showPoints",
-                    "value": "never"
-                  },
-                  {
-                    "id": "displayName",
-                    "value": "KLD (mean)"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "tvd_mean"
-                },
-                "properties": [
-                  {
-                    "id": "custom.showPoints",
-                    "value": "never"
-                  },
-                  {
-                    "id": "displayName",
-                    "value": "TVD (mean)"
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 7,
-            "w": 24,
-            "x": 0,
-            "y": 16
-          },
-          "id": 33,
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "Total Variance Distance (TVD)",
-              "url": "https://en.wikipedia.org/wiki/Total_variation_distance_of_probability_measures"
-            },
-            {
-              "targetBlank": true,
-              "title": "Kullback–Leibler Divergence (KLD)",
-              "url": "https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence"
-            },
-            {
-              "targetBlank": true,
-              "title": "Hellinger",
-              "url": "https://en.wikipedia.org/wiki/Hellinger_distance"
-            }
-          ],
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "table",
-              "placement": "right",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "multi",
-              "sort": "desc"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "prometheus"
-              },
-              "editorMode": "code",
-              "expr": "income_features{project=\"$PROJECT\", endpoint_id=\"$MODELENDPOINT\"}",
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Income Features",
           "type": "timeseries"
         }
       ],
@@ -743,7 +585,7 @@ data:
       "timezone": "",
       "title": "Model Monitoring - Performance",
       "uid": "9CazA-UGz",
-      "version": 7,
+      "version": 3,
       "weekStart": ""
     }
 kind: ConfigMap
