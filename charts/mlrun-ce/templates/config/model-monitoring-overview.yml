@@ -914,7 +914,6 @@ data:
               "refId": "A"
             }
           ],
-          "timeFrom": "1h",
           "title": "Average Latency (1 hour)",
           "type": "timeseries"
         },
