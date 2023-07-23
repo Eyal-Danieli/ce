@@ -364,7 +364,7 @@ kube-prometheus-stack:
       storageSpec:
         volumeClaimTemplate:
           spec:
-            storageClassName: gluster
+            storageClassName: local-path
             accessModes: ["ReadWriteOnce"]
             resources:
               requests:
