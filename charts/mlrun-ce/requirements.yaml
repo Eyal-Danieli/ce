@@ -4,7 +4,7 @@ dependencies:
     repository: "https://nuclio.github.io/nuclio/charts"
   - name: mlrun
     version: "0.9.14"
-    repository: "https://eyal-danieli.github.io/helm-charts/"
+    repository: "../helm-charts/stable/mlrun"
   - name: mpi-operator
     version: "0.6.0"
     repository: "https://v3io.github.io/helm-charts/stable"
