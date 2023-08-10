@@ -140,9 +140,9 @@ mlrun:
     dirPath: "/mlrun/db"
     dsn: mysql+pymysql://root@mlrun-db:3306/mlrun
     oldDsn: sqlite:////mlrun/db/mlrun.db?check_same_thread=false
-  model_monitoring:
-    db:
-      enabled: True
+#  model_monitoring:
+#    db:
+#      enabled: True
   ce:
     mode: full
 
