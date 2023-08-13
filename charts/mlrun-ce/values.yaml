@@ -106,6 +106,9 @@ mlrun:
       - configMapRef:
           name: mlrun-override-env
           optional: true
+      - configMapRef:
+          name: mlrun-model-monitoring-db-config
+          optional: true
     extraPersistentVolumeMounts: ~
   ui:
     fullnameOverride: mlrun-ui
