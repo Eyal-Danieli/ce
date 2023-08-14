@@ -339,10 +339,10 @@ kube-prometheus-stack:
     additionalDataSources:
     - name: iguazio
       type: mysql
-      url:
-      user:
+      url: mlrun-db:3306
+      user: root
       password:
-      database:
+      database: monitoring
       editable: true
       maxOpenConns: 100
       maxIdleConns: 100
