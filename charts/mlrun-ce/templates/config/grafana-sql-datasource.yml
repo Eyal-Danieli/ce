@@ -1,0 +1,20 @@
+{{- if index .Values.mlrun.modelMonitoring.enabled -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-sql-datasource
+data:
+  custom.yaml: |
+    apiVersion: 1
+    datasources:
+    - name: iguazio
+      type: mysql
+      url: mysql+pymysql://root@mlrun-db:3306/monitoring
+      user: root
+      password: mlrun-db
+      database: monitoring
+      editable: true
+      maxOpenConns: 100
+      maxIdleConns: 100
+      maxIdleConnsAuto: true
+{{- end -}}
