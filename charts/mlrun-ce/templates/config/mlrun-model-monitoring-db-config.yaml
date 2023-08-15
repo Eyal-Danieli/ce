@@ -4,5 +4,5 @@ kind: ConfigMap
 metadata:
   name: mlrun-model-monitoring-db-config
 data:
-  MLRUN_MODEL_ENDPOINT_MONITORING__ENDPOINT_STORE_CONNECTION: {{ template "mlrun-ce.mlrun.modelMonitoring.DSN" }}
+  MLRUN_MODEL_ENDPOINT_MONITORING__ENDPOINT_STORE_CONNECTION: {{- template "mlrun-ce.mlrun.modelMonitoring.DSN" }}
 {{- end -}}
