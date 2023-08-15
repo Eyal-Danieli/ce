@@ -217,6 +217,8 @@ Model monitoring DSN
 {{- if .Values.mlrun.modelMonitoring.dsn -}}
 {{ .Values.mlrun.modelMonitoring.dsn }}
 {{- else -}}
-mysql+pymysql://root@mlrun-db:3306/mlrun-monitoring-v2
+{{- if eq .Values.mlrun.httpDB.dbType "mysql" }}
+{{ .Values.mlrun.httpDB.dsn }}-monitoring
+{{- end }}
 {{- end -}}
 {{- end -}}
