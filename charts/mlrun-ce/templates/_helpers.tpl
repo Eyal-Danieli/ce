@@ -216,9 +216,11 @@ Model monitoring DSN
 {{- define "mlrun-ce.mlrun.modelMonitoring.DSN" -}}
 {{- if .Values.mlrun.modelMonitoring.dsn -}}
 {{ .Values.mlrun.modelMonitoring.dsn }}
+echo "here 1"
 {{- else -}}
 {{- if eq .Values.mlrun.httpdb.dbType "mysql" -}}
 {{ .Values.mlrun.httpdb.dsn }}-monitoring
+echo "here 2"
 {{- else -}}
 {{- end -}}
 {{- end -}}
