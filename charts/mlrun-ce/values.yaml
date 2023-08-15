@@ -145,7 +145,7 @@ mlrun:
     oldDsn: sqlite:////mlrun/db/mlrun.db?check_same_thread=false
   modelMonitoring:
     enabled: True
-    dsn: mysql+pymysql://root@mlrun-db:3306/mlrun-monitoring-v4
+    dsn:
   ce:
     mode: full
 
