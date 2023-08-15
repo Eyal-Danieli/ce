@@ -220,4 +220,3 @@ Model monitoring DSN
 mysql+pymysql://root@mlrun-db:3306/mlrun-monitoring
 {{- end -}}
 {{- end -}}
-{{- end -}}
