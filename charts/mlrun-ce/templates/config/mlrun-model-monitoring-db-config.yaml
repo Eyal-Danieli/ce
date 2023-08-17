@@ -1,4 +1,4 @@
-{{- if index .Values.mlrun.modelMonitoring.enabled -}}
+{{- if index .Values.mlrun.modelMonitoring.provisionDB -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
