@@ -365,6 +365,7 @@ kube-prometheus-stack:
       nodePort: 30120
     prometheusSpec:
       storageSpec:
+        enabled: true
         volumeClaimTemplate:
           spec:
             storageClassName: local-path
