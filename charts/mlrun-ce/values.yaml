@@ -351,6 +351,11 @@ kube-prometheus-stack:
       maxOpenConns: 100
       maxIdleConns: 100
       maxIdleConnsAuto: true
+    - name: TDengine
+      type: tdengine-datasource
+      orgId: 1
+      url: 192.168.224.154:30377
+      editable: true
     persistence:
       type: pvc
       enabled: true
