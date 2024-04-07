@@ -356,6 +356,13 @@ kube-prometheus-stack:
       orgId: 1
       url: 192.168.224.154:30377
       editable: true
+      # <map>
+      secureJsonData:
+        # <string> a redundant url configuration. Required.
+        url: 192.168.224.154:30377
+        # <string> basic authorization token. Required, can be build like
+        #   `printf root:taosdata|base64`
+        basicAuth: printf root:taosdata|base64
     persistence:
       type: pvc
       enabled: true
