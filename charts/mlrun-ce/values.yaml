@@ -354,12 +354,12 @@ kube-prometheus-stack:
     - name: TDengine
       type: tdengine-datasource
       orgId: 1
-      url: 192.168.224.154:30377
+      url: 192.168.224.154:31033
       editable: true
       # <map>
       secureJsonData:
         # <string> a redundant url configuration. Required.
-        url: 192.168.224.154:30377
+        url: 192.168.224.154:31033
         # <string> basic authorization token. Required, can be build like
         #   `printf root:taosdata|base64`
         basicAuth: printf root:taosdata|base64
